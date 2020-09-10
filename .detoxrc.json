@@ -1,0 +1,38 @@
+{
+    "testRunner": "jest",
+    "runnerConfig": "e2e/config.json",
+    "configurations": {
+        "ios": {
+            "type": "ios.simulator",
+            "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/AwesomeApp.app",
+            "build": "xcodebuild -workspace ios/AwesomeApp.xcworkspace -scheme AwesomeApp -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+            "device": {
+                "type": "iPhone 11"
+            }
+        },
+        "android:device": {
+            "type": "android.attached",
+            "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
+            "build": "cd ./android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
+            "device": {
+                "adbName": "977AY0ZNTS"
+            }
+        },
+        "android:emulator:debug": {
+            "type": "android.emulator",
+            "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
+            "build": "cd ./android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
+            "device": {
+                "avdName": "Pixel_4_API_R"
+            }
+        },
+        "android:emulator:release": {
+            "type": "android.emulator",
+            "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
+            "build": "cd ./android && ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release && cd ..",
+            "device": {
+                "avdName": "Pixel_4_API_R"
+            }
+        }
+    }
+}

@@ -1,0 +1,5 @@
+node_modules
+artifacts
+e2e/cucumber_report.html
+e2e/cucumber-report-android.json
+artifacts
